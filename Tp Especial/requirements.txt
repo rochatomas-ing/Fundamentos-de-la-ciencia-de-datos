@@ -1,0 +1,37 @@
+# Dependencias del TPE - EPA Fuel Economy Model Year 2025
+# Entorno verificado con Python 3.12.3 sobre Linux.
+# Reconstrucción:
+#     python3 -m venv venvTPE
+#     source venvTPE/bin/activate
+#     pip install -r requirements.txt
+#
+# Este archivo incluye jupyterlab e ipykernel a propósito: la notebook es el
+# entregable principal y sin ellos no se puede abrir ni ejecutar.
+
+# --- Manipulación y análisis de datos ---
+pandas==3.0.6
+numpy==2.5.4
+openpyxl==3.1.5          # lectura del .xlsx de la EPA; sin esto read_excel() falla
+
+# --- Inferencia estadística (puntos 3 y 4 del enunciado) ---
+scipy==1.18.1            # Shapiro-Wilk, Kolmogorov-Smirnov, Levene, Kruskal-Wallis,
+                         # Mann-Whitney U, ANOVA, chi-cuadrado
+scikit-learn==1.9.1      # StandardScaler para la hipótesis multivariada
+statsmodels==0.15.0      # regresión lineal múltiple
+
+# --- Visualización ---
+matplotlib==3.11.2
+seaborn==0.13.2
+
+# --- Ejecución de la notebook (entregable principal) ---
+jupyterlab==4.6.4        # entorno de trabajo
+ipykernel==7.4.0         # kernel de Python que ejecuta las celdas
+
+# --- Descarga de datos ---
+wget==3.2                # módulo Python (wget.download). NO es el comando wget:
+                         # ese es GNU Wget, del sistema, y no se instala con pip.
+
+# Requisito del sistema (no instalable con pip): GNU Wget 1.21+.
+# En Debian/Ubuntu:  sudo apt install wget
+# Sólo hace falta si se baja el dataset por terminal en lugar de usar el archivo
+# 25-testcar-2026-01-21.xlsx que ya viene incluido en el repositorio.
